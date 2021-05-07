@@ -1,0 +1,81 @@
+<!--
+* Astrofotografia Brasil
+* ======================
+*
+* Astrofotografia Brasil é uma plataforma para divulgação de astrofotografias feitas por
+* profissionais e/ou amadores no território brasileiro, nesta perspectiva, objetiva incentivar
+* a participação da comunidade brasileira em observações e registros de corpos celestes e
+* fenômenos astronômicos.
+*
+* @author Isak Ruas
+*
+* @license Esta plataforma é disponibilizada sobre a Licença Pública Geral (GNU) V3.0
+* Mais detalhes em: https://github.com/isakruas/astfotbr/blob/master/LICENSE
+*
+* @link Homepage: https://ast.fot.br/
+* GitHub Repo: https://github.com/isakruas/astfotbr/
+* README: https://github.com/isakruas/astfotbr/blob/master/README.md
+*
+* @version 1.0.30
+-->
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+ 
+    <!-- Primary -->
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="300">
+    <title>Astrofotografia Brasil</title>
+    <meta name="title"              content="Astrofotografia Brasil">
+    <meta name="description"        content="Divulgação de astrofotografias feitas por profissionais e/ou amadores no território brasileiro">
+    <meta name="abstract"           charset="Divulgação de astrofotografias">
+    <meta name="keywords"           content="astrofotografia, brasil, divulgação de astrofotografias, registros de corpos celestes, corpos celestes, registros de fenômenos astronômicos, fenômenos astronômicos">
+    <meta name="robots"             content="index, nofollow">
+    <meta name="language"           content="pt-br">
+    <meta name="revisit-after"      content="5 days">
+    <meta name="author"             content="Isak Paulo de Andrade Ruas">
+
+    <!-- Facebook -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="{{request.scheme}}://{{request.get_host}}/">
+    <meta property="og:title"       content="Astrofotografia Brasil">
+    <meta property="og:description" content="Divulgação de astrofotografias feitas por profissionais e/ou amadores no território brasileiro">
+    <meta property="og:image"       content="{{request.scheme}}://{{request.get_host}}/media/image.png">
+    <meta property="og:locale"      content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card"           content="summary_large_image">
+    <meta property="twitter:url"            content="{{request.scheme}}://{{request.get_host}}/">
+    <meta property="twitter:title"          content="Astrofotografia Brasil">
+    <meta property="twitter:description"    content="Divulgação de astrofotografias feitas por profissionais e/ou amadores no território brasileiro">
+    <meta property="twitter:image"          content="{{request.scheme}}://{{request.get_host}}/media/image.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://purecss.io/css/pure/pure-min.css">
+    <link rel="stylesheet" href="https://purecss.io/css/pure/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://purecss.io/layouts/gallery/styles.css">
+
+    <!-- Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "{{request.scheme}}://{{request.get_host}}/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{request.scheme}}://{{request.get_host}}/autor@/{autor}/",
+          "query-input": "required name=autor"
+        }
+    }
+    </script>
+
+</head>
+
+<body>
+
+{% block body %}
+{% endblock body %}
+
+</body>
+</html>

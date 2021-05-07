@@ -1,0 +1,219 @@
+{% extends 'templates/base.html' %}
+
+{% block body %}
+<div>
+    <div class="header">
+        <div class="pure-menu pure-menu-horizontal">
+            <a class="pure-menu-heading" href="{{request.scheme}}://{{request.get_host}}/">ast.fot.br</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="../" class="pure-menu-link">INÍCIO</a></li>
+                <li class="pure-menu-item">
+                    <a href="../galeria/" class="pure-menu-link">GALERIA</a></li>
+                <li class="pure-menu-item pure-menu-selected">
+                    <a href="#" class="pure-menu-link">SOBRE</a></li>
+            </ul>
+            <form onsubmit="return Procurar();" id="form" action="" method="get" class="pure-form" style="display: inline-block; float: right;padding-right: 1vw">
+                <input type="text" id="autor" placeholder="Autor@" class="pure-input-rounded" />
+                <button type="submit" id="procurar" class="pure-button">Procurar</button>
+            </form>
+            <script type="text/javascript">
+
+                function Procurar(){
+                    var autor = document.querySelector('#autor');
+                    var nome = autor.value;
+                    var url = '{{request.scheme}}://{{request.get_host}}/autor@/'+nome+'/';
+                    if (nome !== ''){
+                        location.href = url;
+                    }
+                    autor.value = ''; 
+
+                    return false;
+                }
+
+                document.querySelector('#autor').onkeyup = function(e){
+                    if(e.keyCode === 13){
+                        document.querySelector('#procurar').click();
+                    }
+                };
+
+            </script>
+        </div>
+    </div>
+    
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <nav class="nav">
+ 
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        
+                        <h2 class="post-title">Sobre</h2>
+
+                        <p class="post-meta">
+                            De <a class="post-author" target="_blank" href="http://lattes.cnpq.br/4397351570177069">Isak Ruas</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p style="width: 80%; text-align: justify;">
+                            Astrofotografia Brasil (ast.fot.br) é uma plataforma para divulgação de astrofotografias feitas por profissionais e/ou amadores no território brasileiro, nesta perspectiva, objetiva incentivar a participação da comunidade brasileira em observações e registros de corpos celestes e fenômenos astronômicos.
+                        </p>
+                        <p style="width: 80%; text-align: justify;">
+                            As imagens aqui apresentadas são extraídas do site astrobin.com e flickr.com, e foram selecionadas por meio de buscas por palavras-chave que de alguma forma relacionem as imagens apresentadas ao Brasil. Se você deseja que suas publicações no astrobin.com ou flickr.com sejam indexadas rapidamente neste site, coloque a hashtag <b>astfotbr</b> na descrição de suas imagens e as marque como publicas, para que possamos identificá-las com mais facilidade.
+                        </p>
+                        <p style="width: 80%; text-align: justify;">
+                            Se você é o proprietário de alguma das imagens aqui apresentadas e por algum motivo não deseja que suas imagens sejam indexadas neste site, entre em contato comigo (isakruas@gmail.com) e eu irei remover as imagens de sua propriedade. 
+                        </p>
+                        <p style="width: 80%; text-align: justify;">
+                            Este site não tem fins lucrativos, todos os custos de manutenção deste sistema são da minha responsabilidade. Não recebo e não pretendo receber patrocínios do público ou de organizações.
+                        </p>
+                    </div>
+                </section>
+ 
+            </div>
+
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        
+                        <h2 class="post-title">Curiosidade</h2>
+
+                        <p class="post-meta">
+                            De <a class="post-author" target="_blank" href="http://lattes.cnpq.br/4397351570177069">Isak Ruas</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p style="width: 80%; text-align: justify;">
+                           Acho lindas, únicas e admiráveis todas as imagens indexadas nesta plataforma, tendo em vista isso, acho merecido que em algum momento, todas elas, tenham o privilégio de serem exibidas na página inicial deste portal. Com isso em mente, desenvolvi um algoritmo de escolha, que monta cada exibição na página inicial de forma diferente. Atualmente, existem {{c}} combinações de páginas que podem ser exibidas, e a cada dia, esse número tende a aumentar. Isso torna cada exibição de página especial e rara.
+                        </p>
+                    </div>
+                </section>
+ 
+            </div>
+
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        
+                        <h2 class="post-title">Perspectivas futuras</h2>
+
+                        <p class="post-meta">
+                            De <a class="post-author" target="_blank" href="http://lattes.cnpq.br/4397351570177069">Isak Ruas</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p style="width: 80%; text-align: justify;">
+                           Quando me questionam sobre as perspectivas futuras deste projeto, digo: alcarçar todos os cantos do nosso país, ter visibilidade mundial e ser uma referência; fazer as pessoas gostarem de astrofotografia tanto quanto eu e ter 1000 imagens indexadas até o final de 2021. 
+                        </p>
+                    </div>
+                </section>
+ 
+            </div>
+
+
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        
+                        <h2 class="post-title">Desenvolvimento</h2>
+
+                        <p class="post-meta">
+                            De <a class="post-author" target="_blank" href="http://lattes.cnpq.br/4397351570177069">Isak Ruas</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p style="width: 80%; text-align: left;">
+/**
+<br />
+* Astrofotografia Brasil
+<br />
+* ======================
+<br />
+*
+<br />
+* Astrofotografia Brasil  é uma  plataforma para  divulgação de  astrofotografias  feitas  por 
+<br />
+* profissionais e/ou amadores no território brasileiro, nesta perspectiva, objetiva incentivar
+<br />
+* a  participação  da  comunidade  brasileira em observações e registros de corpos  celestes e 
+<br />
+* fenômenos astronômicos.
+<br />
+*
+<br />
+* @author      Isak Ruas <isakruas@gmail.com>
+<br />
+*
+<br />
+* @license      Esta plataforma é disponibilizada sobre a Licença Pública Geral (GNU) V3.0
+<br />
+*              Mais detalhes em: https://github.com/isakruas/astfotbr/blob/master/LICENSE
+<br />
+*
+<br />
+* @link        Homepage:     https://ast.fot.br/
+<br />
+*              GitHub Repo:  https://github.com/isakruas/astfotbr/
+<br />
+*              README:       https://github.com/isakruas/astfotbr/blob/master/README.md
+<br />
+*
+<br />
+* @version     1.0.30
+<br />
+*/
+<br />
+                           
+                        </p>
+ 
+                    </div>
+                </section>
+ 
+            </div>
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        
+                        <h2 class="post-title">Avisos</h2>
+
+                        <p class="post-meta">
+                            De <a class="post-author" target="_blank" href="http://lattes.cnpq.br/4397351570177069">Isak Ruas</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p style="width: 80%; text-align: justify;">
+                           ESTE SITE USA A API ASTROBIN, MAS NÃO É ENDOSSADO OU CERTIFICADO PELA ASTROBIN.
+                        </p>
+                        <p style="width: 80%; text-align: justify;">
+                           ESTE SITE USA A API FLICKR, MAS NÃO É ENDOSSADO OU CERTIFICADO PELA FLICKR.
+                        </p>
+                    </div>
+                </section>
+ 
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="footer">
+        AS IMAGENS NESTE SITE SÃO PROPRIEDADE DE SEUS RESPECTIVOS PROPRIETÁRIOS
+    </div>
+</div>
+{% endblock body %}
+
+
+

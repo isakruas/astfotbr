@@ -1,0 +1,85 @@
+{% extends 'templates/base.html' %}
+
+{% block body %}
+<div>
+    <div class="header">
+        <div class="pure-menu pure-menu-horizontal">
+            <a class="pure-menu-heading" href="{{request.scheme}}://{{request.get_host}}/">ast.fot.br</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="../" class="pure-menu-link">INÍCIO</a></li>
+                <li class="pure-menu-item pure-menu-selected">
+                    <a href="#" class="pure-menu-link">GALERIA</a></li>
+                <li class="pure-menu-item">
+                    <a href="../sobre/" class="pure-menu-link">SOBRE</a></li>
+
+
+        {% if is_paginated %}
+
+            {% if page_obj.has_previous %}
+                <li class="pure-menu-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" class="pure-menu-link">PAGINA ANTERIOR</a></li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <li class="pure-menu-item">
+                    <a href="?page={{ page_obj.next_page_number }}" class="pure-menu-link">PRÓXIMA PAGINA</a></li>
+            {% endif %}
+
+        {% endif %}
+
+            </ul>
+            <form onsubmit="return Procurar();" id="form" action="" method="get" class="pure-form" style="display: inline-block; float: right;padding-right: 1vw">
+                <input type="text" id="autor" placeholder="Autor@" class="pure-input-rounded" />
+                <button type="submit" id="procurar" class="pure-button">Procurar</button>
+            </form>
+            <script type="text/javascript">
+
+                function Procurar(){
+                    var autor = document.querySelector('#autor');
+                    var nome = autor.value;
+                    var url = '{{request.scheme}}://{{request.get_host}}/autor@/'+nome+'/';
+                    if (nome !== ''){
+                        location.href = url;
+                    }
+                    autor.value = ''; 
+
+                    return false;
+                }
+
+                document.querySelector('#autor').onkeyup = function(e){
+                    if(e.keyCode === 13){
+                        document.querySelector('#procurar').click();
+                    }
+                };
+
+            </script>
+        </div>
+    </div>
+    
+    <div class="pure-g">
+    {% for object in gallery %}
+        <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <a target="_blank" href="{{object.photo_real}}">
+                <img src="{{object.photo_thumb}}"
+                     alt="{{object.user}}">
+            </a>
+
+            <aside class="photo-box-caption">
+                <span>
+                    De <a target="_blank" href="{{object.user_url}}">{{object.user_name}}</a>
+                </span>
+            </aside>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="footer">
+        AS IMAGENS NESTE SITE SÃO PROPRIEDADE DE SEUS RESPECTIVOS PROPRIETÁRIOS
+    </div>
+</div>
+{% endblock body %}
+
+
+

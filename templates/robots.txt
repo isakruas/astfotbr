@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Allow: /galeria/
+Allow: /sobre/
+Sitemap: https://ast.fot.br/sitemap.xml
