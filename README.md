@@ -1,1 +1,1 @@
-# astfotbr
+Astrofotografia Brasil é uma plataforma para divulgação de astrofotografias feitas por profissionais e/ou amadores no território brasileiro, nesta perspectiva, objetiva incentivar a participação da comunidade brasileira em observações e registros de corpos celestes e fenômenos astronômicos. É uma plataforma gratuita e de código aberto.
